@@ -10,6 +10,13 @@ createApp({
     const inStock = computed(() => {
       return variants.value[selectedVariant.value].quantity
     })
+    const onSale = ref(true)
+    const onSaleText = computed(() => {
+      if (onSale.value) {
+        return brand.value + ' ' + product.value + ' ' + 'is on sale'
+      }
+      return ''
+    })
     const inventory = ref(100)
     const details = ref([
       '50% cotton',
@@ -45,6 +52,8 @@ createApp({
       title,
       image,
       inStock,
+      onSale,
+      onSaleText,
       inventory,
       details,
       variants,
