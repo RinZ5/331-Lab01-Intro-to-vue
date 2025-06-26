@@ -13,7 +13,12 @@
 <body>
     <div id="app">
         <div class="nav-bar"></div>
-        <div class="cart">Cart({{ cart }})</div>
+        <div class="cart">
+            <span>Cart: </span>
+            <li v-for="(count, product) in cartItemCount">
+                {{ product }}: {{ count }}
+            </li>
+        </div>
         <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
         <product-details :details="details"></product-details>
     </div>

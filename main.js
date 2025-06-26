@@ -3,6 +3,12 @@ const { createApp, ref, computed } = Vue
 const app = createApp({
   setup(){
     const cart = ref([])
+    const cartItemCount = computed(() => {
+      return cart.value.reduce((accumulator, item) => {
+        accumulator[item] = (accumulator[item] || 0) + 1;
+        return accumulator
+      }, {})
+    })
     const premium = ref(true)
     const details = ref([
       '100% Fake',
@@ -15,6 +21,7 @@ const app = createApp({
 
     return {
       cart,
+      cartItemCount,
       premium,
       details,
       updateCart
