@@ -29,7 +29,7 @@ const productDisplay = {
     props: {
       premium: Boolean
     },
-    setup(props) {
+    setup(props, { emit }) {
       const product = ref('Boots')
       const brand = ref('SE 331')
       const image = computed(() => {
@@ -59,7 +59,7 @@ const productDisplay = {
       })
 
       function addToCart() {
-        cart.value += 1
+        emit('add-to-cart', variants.value[selectedVariant.value].id)
       }
 
       const title = computed(() => {
