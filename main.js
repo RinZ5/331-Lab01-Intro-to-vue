@@ -25,6 +25,11 @@ createApp({
       image.value = variantImage
     }
 
+    function updateInStock(){
+      inStock.value = !inStock.value
+    }
+
+
     return {
       product,
       image,
@@ -34,7 +39,8 @@ createApp({
       variants,
       cart,
       addToCart,
-      updateImage
+      updateImage,
+      updateInStock
     }
   }
 }).mount('#app')
